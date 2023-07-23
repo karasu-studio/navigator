@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://uoc3fiegkch6"]
+
+[ext_resource type="Script" path="res://package/com.karasustudio.navigator/stack_navigator.gd" id="1_dklch"]
+
+[node name="GameNavigator" type="Node" node_paths=PackedStringArray("content")]
+script = ExtResource("1_dklch")
+content = NodePath("Content")
+
+[node name="Content" type="Node" parent="."]

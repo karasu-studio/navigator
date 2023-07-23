@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://ycucq3h2fjln"]
+
+[ext_resource type="Script" path="res://example/screen_three/screen_three.gd" id="1_483lb"]
+[ext_resource type="Script" path="res://package/com.karasustudio.navigator/tab_bar_view.gd" id="2_ubo2f"]
+[ext_resource type="PackedScene" uid="uid://bgrlg42hykrlf" path="res://example/screen_three/sub_screen_01.tscn" id="3_db3hn"]
+[ext_resource type="PackedScene" uid="uid://b147w50dc3sp" path="res://example/screen_three/sub_screen_02.tscn" id="4_aqcni"]
+[ext_resource type="PackedScene" uid="uid://7855u52djqpv" path="res://example/screen_three/sub_screen_03.tscn" id="5_vjmw1"]
+
+[node name="screen_three" type="Node" node_paths=PackedStringArray("tab_buttons", "tab_bar_view")]
+script = ExtResource("1_483lb")
+tab_buttons = [NodePath("Control/ColorRect/HBoxContainer/TAB_VIEW_01"), NodePath("Control/ColorRect/HBoxContainer/TAB_VIEW_02"), NodePath("Control/ColorRect/HBoxContainer/TAB_VIEW_03")]
+tab_bar_view = NodePath("TabViews")
+
+[node name="TabViews" type="Node" parent="." node_paths=PackedStringArray("content")]
+script = ExtResource("2_ubo2f")
+tab_views_ref = Array[PackedScene]([ExtResource("3_db3hn"), ExtResource("4_aqcni"), ExtResource("5_vjmw1")])
+content = NodePath("Content")
+
+[node name="Content" type="Node" parent="TabViews"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.748
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.295983
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(576, 81)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.174
+anchor_top = 0.092
+anchor_right = 0.825
+anchor_bottom = 0.706
+offset_left = -0.448011
+offset_top = 0.00399876
+offset_right = -0.400055
+offset_bottom = -0.0780049
+pivot_offset = Vector2(375, 50)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(375, 50)
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TAB_VIEW_01" type="Button" parent="Control/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "TAB_VIEW_01
+"
+
+[node name="TAB_VIEW_02" type="Button" parent="Control/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "TAB_VIEW_02
+"
+
+[node name="TAB_VIEW_03" type="Button" parent="Control/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "TAB_VIEW_03
+"
